@@ -1,4 +1,4 @@
-package tasks.forth;
+package tasks.fourth;
 
 class ObjectA implements Comparable<ObjectA>{
 
