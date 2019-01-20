@@ -1,8 +1,5 @@
 package tasks.forth;
 
-
-import java.util.Comparator;
-
 class ObjectA implements Comparable<ObjectA>{
 
     private int id;

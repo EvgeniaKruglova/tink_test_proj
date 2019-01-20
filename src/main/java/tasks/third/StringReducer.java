@@ -1,8 +1,6 @@
 package tasks.third;
 
 import java.util.Arrays;
-import java.util.Optional;
-
 
 class StringReducer {
     private String string;
