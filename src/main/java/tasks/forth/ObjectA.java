@@ -1,7 +1,9 @@
 package tasks.forth;
 
 
-class ObjectA {
+import java.util.Comparator;
+
+class ObjectA implements Comparable<ObjectA>{
 
     private int id;
 
@@ -31,5 +33,34 @@ class ObjectA {
 
     String getFieldValue() {
         return fieldValue;
+    }
+
+
+    @Override
+    public int compareTo(ObjectA object) {
+        boolean idMatch = this.id == object.getId();
+        boolean filesMatch = this.field.equals(object.getField());
+        boolean fieldsValuesMatch = this.fieldValue.equals(object.getFieldValue());
+
+        if (idMatch && filesMatch && fieldsValuesMatch) return 0;
+        if (!filesMatch) {
+            System.out.println(String.format("Для id %s не совпало: Поле field. Ожидалось %s, текущее %s",
+                    this.getId(),
+                    this.getField(),
+                    object.getField()
+            ));
+
+            return 1;
+        }
+        if (!fieldsValuesMatch) {
+            System.out.println(String.format("Для id %s не совпало: Поле fieldValue. Ожидалось %s, текущее %s",
+                    this.getId(),
+                    this.getFieldValue(),
+                    object.getFieldValue()
+            ));
+
+            return 2;
+        }
+        return 3;
     }
 }

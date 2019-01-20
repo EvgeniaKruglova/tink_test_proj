@@ -1,10 +1,13 @@
 package tasks.forth;
 
 
+import org.assertj.core.api.SoftAssertions;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import static org.assertj.core.api.Assertions.*;
 
 public class ObjectCompator {
 
@@ -38,6 +41,7 @@ public class ObjectCompator {
     }
 
     private static void compareTwoLists (List<ObjectA> list1, List<ObjectA> list2) {
+        SoftAssertions softAssertions = new SoftAssertions();
         if (list1.size() != list2.size()) {
             System.out.println("Размеры коллекций не совпадают");
             return;
@@ -47,25 +51,7 @@ public class ObjectCompator {
         list1.forEach(objectA -> {
             int index = indexHolder.getAndIncrement();
             ObjectA objectToCompare = list2.get(index);
-
-            boolean fieldsMatch = objectA.getField().equals(objectToCompare.getField());
-            if (!fieldsMatch) {
-                System.out.println(String.format("Для id %s не совпало: Поле field. Ожидалось %s, текущее %s",
-                        objectA.getId(),
-                        objectA.getField(),
-                        objectToCompare.getField()
-                ));
-            }
-
-            boolean fieldsValueMatch = objectA.getFieldValue().equals(objectToCompare.getFieldValue());
-            if (!fieldsValueMatch) {
-                System.out.println(String.format("Для id %s не совпало: Поле fieldValue. Ожидалось %s, текущее %s",
-                        objectA.getId(),
-                        objectA.getFieldValue(),
-                        objectToCompare.getFieldValue()
-                ));
-            }
+            softAssertions.assertThat(objectA.compareTo(objectToCompare)).isZero();
         });
     }
-
 }

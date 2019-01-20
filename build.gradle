@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.assertj.generator' version '0.0.6b'
 }
 
 group 'tinkoff_test_task'
@@ -11,6 +12,13 @@ repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        assertJ { }
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile("org.assertj:assertj-core:3.11.1")
 }
