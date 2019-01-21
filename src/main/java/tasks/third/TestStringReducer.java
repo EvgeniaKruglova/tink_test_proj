@@ -10,6 +10,7 @@ public class TestStringReducer {
         StringReducer stringReducer5 = new StringReducer("baab");
         StringReducer stringReducer6 = new StringReducer("11122");
         StringReducer stringReducer7 = new StringReducer("");
+        StringReducer stringReducer8 = new StringReducer("ba       ab");
 
         System.out.println(stringReducer1.reduceLine());
         System.out.println(stringReducer2.reduceLine());
@@ -18,5 +19,6 @@ public class TestStringReducer {
         System.out.println(stringReducer5.reduceLine());
         System.out.println(stringReducer6.reduceLine());
         System.out.println(stringReducer7.reduceLine());
+        System.out.println(stringReducer8.reduceLine());
     }
 }

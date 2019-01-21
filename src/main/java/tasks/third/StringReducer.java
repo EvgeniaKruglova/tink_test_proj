@@ -11,9 +11,9 @@ class StringReducer {
 
     String reduceLine() {
         return Arrays.stream(string.split(""))
-                .reduce((left, right) -> left.equals(right)
-                        ? ""
-                        : left.endsWith(right) ? left.replace(right, "") : left.concat(right)
+                .reduce((left, right) -> left.endsWith(right)
+                        ? left.replace(right, "")
+                        : left.concat(right)
                 )
                 .orElseThrow(IllegalArgumentException::new);
     }
