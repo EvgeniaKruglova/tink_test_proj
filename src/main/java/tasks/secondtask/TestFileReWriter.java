@@ -1,4 +1,4 @@
-package tasks.second;
+package tasks.secondtask;
 
 public class TestFileReWriter {
 

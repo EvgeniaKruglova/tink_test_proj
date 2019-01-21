@@ -1,4 +1,4 @@
-package tasks.fourth;
+package tasks.fourthtask;
 
 
 import org.assertj.core.api.SoftAssertions;
@@ -8,9 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ObjectCompator {
-
-    public ObjectCompator() {}
+public class ObjectComparator {
 
     public static void main(String[] args) {
         ObjectA objectA11 = new ObjectA("field1", "fieldValue1");
@@ -34,17 +32,19 @@ public class ObjectCompator {
         compareTwoLists(list1, list6);
     }
 
-
     private static List<ObjectA> createObjAList(ObjectA... objects) {
         return new ArrayList<>(Arrays.asList(objects));
     }
 
     private static void compareTwoLists (List<ObjectA> list1, List<ObjectA> list2) {
         SoftAssertions softAssertions = new SoftAssertions();
+
         if (list1.size() != list2.size()) {
             System.out.println("Размеры коллекций не совпадают");
+
             return;
         }
+
         AtomicInteger indexHolder = new AtomicInteger();
 
         list1.forEach(objectA -> {
@@ -53,4 +53,5 @@ public class ObjectCompator {
             softAssertions.assertThat(objectA.compareTo(objectToCompare)).isZero();
         });
     }
+
 }

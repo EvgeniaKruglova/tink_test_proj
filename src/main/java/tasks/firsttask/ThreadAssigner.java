@@ -1,4 +1,4 @@
-package tasks.first;
+package tasks.firsttask;
 
 import java.util.Arrays;
 import java.util.Iterator;

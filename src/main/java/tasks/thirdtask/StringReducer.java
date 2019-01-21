@@ -1,4 +1,4 @@
-package tasks.third;
+package tasks.thirdtask;
 
 import java.util.Arrays;
 
@@ -17,4 +17,5 @@ class StringReducer {
                 )
                 .orElseThrow(IllegalArgumentException::new);
     }
+
 }

@@ -1,4 +1,4 @@
-package tasks.fourth;
+package tasks.fourthtask;
 
 class ObjectA implements Comparable<ObjectA>{
 
@@ -40,6 +40,7 @@ class ObjectA implements Comparable<ObjectA>{
         boolean fieldsValuesMatch = this.fieldValue.equals(object.getFieldValue());
 
         if (idMatch && filesMatch && fieldsValuesMatch) return 0;
+
         if (!filesMatch) {
             System.out.println(String.format("Для id %s не совпало: Поле field. Ожидалось %s, текущее %s",
                     this.getId(),
@@ -49,6 +50,7 @@ class ObjectA implements Comparable<ObjectA>{
 
             return 1;
         }
+
         if (!fieldsValuesMatch) {
             System.out.println(String.format("Для id %s не совпало: Поле fieldValue. Ожидалось %s, текущее %s",
                     this.getId(),
@@ -58,6 +60,8 @@ class ObjectA implements Comparable<ObjectA>{
 
             return 2;
         }
+
         return 3;
     }
+
 }

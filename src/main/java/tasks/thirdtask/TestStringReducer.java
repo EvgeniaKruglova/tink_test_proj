@@ -1,4 +1,4 @@
-package tasks.third;
+package tasks.thirdtask;
 
 public class TestStringReducer {
 
@@ -21,4 +21,5 @@ public class TestStringReducer {
         System.out.println(stringReducer7.reduceLine());
         System.out.println(stringReducer8.reduceLine());
     }
+
 }
