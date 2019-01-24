@@ -26,7 +26,7 @@ class FileReWriter {
             Stream<String> stream = Files.lines(filePath);
 
             List<String> list = stream
-                    .map(line -> line.replaceAll(columnName + "\\s+.*", String.format("%s %s", columnName, value)))
+                    .map(line -> line.replace(columnName + "\\s+.*", String.format("%s %s", columnName, value)))
                     .collect(Collectors.toList());
 
             Files.write(filePath, list);
